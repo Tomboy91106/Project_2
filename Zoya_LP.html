@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoya-Exquisite Diamond Boutique</title>
+    <style>
+        *
+        {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        header
+        {
+            background-color: rgba(234, 211, 185, 0.8);
+        }
+        nav ul
+        {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+            justify-content: space-between;
+            display: flex;
+            background-color: rgba(234, 211, 185, 0.4);
+        }
+        nav ul li
+        {
+            position: relative;
+        }
+        nav ul li a
+        {
+            display: flex;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-size: 18px;
+            text-align: center;
+        }
+        nav ul li a:hover
+        {
+            background-color: rgba(220, 190, 157, 0.8);
+        }
+        ul li ul.dropdown
+        {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 10;
+            display: none;
+            list-style: none;
+            min-width: 200px;
+            background-color: rgba(190, 153, 114, 0.5);
+        }
+        ul li:hover > ul.dropdown
+        {
+            display: block;
+        }
+        ul li ul.dropdown li
+        {
+            position: relative;
+        }
+        ul li ul.dropdown li a
+        {
+            padding: 10px 15px;
+            font-size: 16px;
+            text-align: left;
+        }
+        ul li ul.dropdown li ul.dropdown
+        {
+            left: 100%;
+            top: 0;
+            display: none;
+            min-width: 200px;
+        }
+        ul li ul.dropdown li:hover > ul.dropdown
+        {
+            display: block;
+        }
+        ul li ul.dropdown li a:hover
+        {
+            background-color: rgba(220, 190, 157, 0.8);
+        }
+        .logo
+        {
+            height: 50px;
+            justify-content: space-evenly;
+        }
+        .btn-div
+        {
+            display: flex;
+        }
+        .login-button, .signup-button
+        {
+            padding: 10px 20px;
+            padding-top: 15px;
+            color: white;
+            background-color: rgba(234, 211, 185, 0.4);
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            top: 0;
+            display: flex;
+            justify-content:flex-end;
+        }
+        .login-button:hover, .signup-button:hover
+        {
+            background-color: rgba(220, 190, 157, 0.8);
+        }
+        .login-container 
+        {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .login-box 
+        {
+            position: relative;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        .login-box h1 
+        {
+            font-size: 24px;
+            font-weight: 200;
+            margin-bottom: 30px;
+        }
+        .input-group 
+        {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .flag-container select 
+        {
+            border: 1px solid #ccc;
+            border-right: none;
+            padding: 10px;
+            border-radius: 5px 0 0 5px;
+        }
+        .input-group input 
+        {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 0 5px 5px 0;
+        }
+        .login-box p 
+        {
+            font-size: 15px;
+            margin: 10px 0;
+        }
+        .login-box button 
+        {
+            background: #c49884;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-box button:hover 
+        {
+            background: #9b715d;
+            color: white;
+        }
+        .close-btn 
+        {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: #333;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin: 0px;
+        }
+        .continue-button
+        {
+            background: #c49884;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        .login-p a
+        {
+            text-decoration-color: #c49884;
+            color: #c49884;
+        }
+        .background-image-1
+        {
+            min-height: 100vh;
+            background-image: url(images/img_1.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            
+        }
+        .sec_1, .sec_2, .sec_5, .sec_6, .sec_7, .sec_8, .sec_9, .sec_10, .sec_11, .sec_12, .sec_13, .sec_14
+        {
+            margin-top: 35px;
+        }
+        .txt-bx, .txt-bx-2
+        {
+            display: flex;
+            justify-content: center;
+        }
+        .txt-bx-2
+        {
+            font-size: 28px;
+            color: white;
+        }
+        p, .p-1
+        {
+            font-size: 32px;
+        }
+        .p-2
+        {
+            font-size: 25px;
+        }
+        .p-3
+        {
+            font-size: 16px;
+        }
+        .sec_3, .sec_15
+        {
+            margin-top: 50px;
+        }
+        .sec_4
+        {
+            margin-top: 30px;
+        }
+        .wrapper
+        {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            row-gap: 40px;
+            width: 90%;
+            margin: 0 auto;
+        } 
+        .card
+        {
+            width: 300px;
+            height: 380px;
+            padding: 32px 16px;
+            background: linear-gradient(to bottom, rgba(234, 211, 185, 0.8),rgba(234, 211, 185, 0.4),rgba(220, 190, 157, 0.8),rgba(190, 153, 114, 0.5));
+            position: relative;
+            display: grid;
+            align-items: flex-end;
+            box-shadow: 0px 7px 10px rgba(0,0,0,0.5);
+            transition: 0.5s ease-in-out;
+            border-radius: 8px;
+        }
+        .card:hover
+        {
+            transform: translateY(20px);
+        }
+        .card:before
+        {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(234, 211, 185, 0.8),rgba(234, 211, 185, 0.4),rgba(220, 190, 157, 0.8),rgba(190, 153, 114, 0.5));
+            z-index: 2;
+            transition: 0.5s all;
+            opacity: 0;
+        }
+        .card:hover:before
+        {
+            opacity: 1;
+            border-radius: 8px;
+        }
+        .card img
+        {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 8px;
+        }
+        .card .info
+        {
+            position: relative;
+            z-index: 3;
+            color: white;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.5s all;
+        }
+        .card:hover .info
+        {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+        .card .info h1
+        {
+            margin: 0;
+            padding-bottom: 25px;
+            font-size: 25px;
+        }
+        .p-1
+        {
+            font-size: 28px;
+        }
+        .card .info .button
+        {
+            text-decoration: none;
+            background: none;
+            color: white;
+            font-size: 12px;
+            cursor: pointer;
+            transition: 0.4s ease-in-out;
+        }
+        .grid-container 
+        {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 20px;
+            row-gap: 40px;
+            margin-left: 40px;
+        }
+        .grid-item 
+        {
+            position: relative;
+            width: 80%;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .grid-item img 
+        {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .grid-item button 
+        {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 80px;
+            background-color: rgba(234, 211, 185, 0.8);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .grid-item button a
+        {
+            color: white;
+            text-decoration: none;
+        }
+        .grid-item:hover 
+        {
+            transform: translateY(-5px);
+            box-shadow: 0px 7px 10px rgba(0,0,0,0.5);
+        }
+        .background-image-2
+        {
+            min-height: 100vh;
+            background-image: url(images/img_18.webp);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .background-image-3
+        {
+            min-height: 100vh;
+            background-image: url(images/img_20.webp);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center; 
+        }
+        .background-image-4
+        {
+            min-height: 100vh;
+            background-image: url(images/img_22.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center; 
+        }
+        .background-image-5
+        {
+            min-height: 80vh;
+            background-image: url(images/img_24.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center; 
+        }
+        .marquee-box
+        {
+            display: none;
+        }
+        .background-image-6
+        {
+            min-height: 130vh;
+            background-image: url(images/img_30.webp);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center; 
+        }
+        .txt-info
+        {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        .bxs
+        {
+            display: flex;
+            justify-content: center;
+        }
+        input
+        {
+            border: 1px solid #0003;
+            padding: 12px 15px;
+            height: auto;
+            width: 35%;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .p-3 a
+        {
+            text-decoration-color: #c49884;
+            color: #c49884;
+        }
+        .subscribe-button
+        {
+            border: none;
+            background-color: #c49884;
+            color: #fff;
+            font-size: 16px;
+            padding: 13px 30px;
+            min-width: 256px;
+            margin-top: 8px;
+        }
+        .subscribe-button:hover
+        {
+            background-color: #9b715d;
+            cursor: pointer;
+        }
+        footer
+        {
+            background-color: #c49884;
+        }
+        footer img
+        {
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+        .sec_16
+        {
+            margin-top: 60px;
+            background-color: #c49884;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btns
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            gap: 200px;
+        }
+        @media screen and (max-width: 767px)
+        {
+            .logo
+            {
+                justify-content: space-around;
+            }
+            .login-button, .signup-button
+            {
+                justify-content: space-around;
+            }
+            .background-image-1
+            {
+                min-height: 175vh;
+                background-image: url(images/img_2.webp);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .wrapper
+            {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                row-gap: 30px;
+                width: 95%;
+            }
+            .card
+            {
+                width: 280px;
+                height: 360px;
+                display: flex;
+                flex-direction: column; 
+                justify-content: flex-end; 
+                padding-bottom: 20px;
+            }
+            .card:last-child 
+            {
+                display: none;
+            }
+            .grid-container 
+            {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .background-image-2
+            {
+                min-height: 175vh;
+                background-image: url(images/img_19.webp);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .background-image-3
+            {
+                min-height: 175vh;
+                background-image: url(images/img_21.webp);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .background-image-4
+            {
+                min-height: 175vh;
+                background-image: url(images/img_23.webp);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .background-image-5
+            {
+                display: none;
+            }
+            .marquee-box 
+            {
+                display: flex;
+                overflow: hidden;
+                width: 100%;
+            }
+
+            .marquee-img-div
+            {
+                display: flex;
+                animation: scroll 15s linear infinite alternate; /* Adjusted for smaller screens */
+            }
+
+            .marquee-img-div:hover 
+            {
+                animation-play-state: paused;
+            }
+
+            @keyframes scroll 
+            {
+                0% 
+                {
+                    transform: translateX(0);
+                }
+                100% 
+                {
+                    transform: translateX(-160%);
+                }
+            }
+
+            .marquee-img 
+            {
+                width: 70%;
+                height: 70%;
+                margin: 5px;
+                border-radius: 10px;
+                border: 2px solid #ddd;
+                object-fit: cover;
+            }
+            .btns
+            {
+                gap: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-left">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">More</a>
+                        <ul class="dropdown">
+                            <li><a href="http://127.0.0.1:5500/Zoya_LP.html">Home</a></li>
+                            <li>
+                                <a href="#">Shop Jewellery</a>
+                                <ul class="dropdown">
+                                    <li><a href="http://127.0.0.1:5500/Shop_Jewellery/Rings.html">Rings</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Shop_Jewellery/Necklace.html">Necklace</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Shop_Jewellery/Bangle.html">Bangle</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Shop_Jewellery/Pendants.html">Pendants</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Shop_Jewellery/Earrings.html">Earrings</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Shop_Jewellery/Bracelet.html">Bracelet</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Shop_Jewellery/All_Jewellery.html">All Jewellery</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Gemstones</a>
+                                <ul class="dropdown">
+                                    <li><a href="http://127.0.0.1:5500/Gemstones/Emerald.html">Emerald</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Gemstones/Sapphire.html">Sapphire</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Gemstones/Morganite.html">Morganite</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Gemstones/ruby.html">Ruby</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Gemstones/Amethyst.html">Amethyst</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Gemstones/Tanzanite.html">Tanzanite</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Collections</a>
+                                <ul class="dropdown">
+                                    <li><a href="http://127.0.0.1:5500/Collections/Alive.html">Alive</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Collections/My_Embrace.html">My Embrace</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Collections/Beyond.html">Beyond</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Collections/Rooted.html">Rooted</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Collections/Pezzo_D'arte.html">Pezzo D'arte</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Collections/Her_Becoming.html">Her Becoming</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Collections/Aterna.html">Aeterna</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Collections/Samave.html">Samave</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Collections/Rouge.html">Rouge</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="http://127.0.0.1:5500/Wedding.html">Wedding</a></li>
+                            <li>
+                                <a href="#">Curations</a>
+                                <ul class="dropdown">
+                                    <li><a href="http://127.0.0.1:5500/Curations/Soul_Lines.html">Soul Lines</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Curations/Mysong.html">Mysong</a></li>
+                                    <li><a href="http://127.0.0.1:5500/Curations/Mysong_2.html">Mysong II</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="http://127.0.0.1:5500/Solitaries.html">Solitaries</a></li>
+                            <li><a href="http://127.0.0.1:5500/Gifting.html">Gifting</a></li>
+                            <li><a href="http://127.0.0.1:5500/Bespoke.html">Bespoke</a></li>
+                            <li><a href="#">Book An Appointment</a></li>
+                            <li><a href="#" onclick="showLogin()">Log In</a></li>
+                            <li><a href="#" onclick="showLogin()">Sign Up</a></li>
+                        </ul>
+                    </li>
+                    <img src="https://www.zoya.in/on/demandware.static/-/Sites-Zoya-Library/default/dw3635170c/images/zoya-header-logo.png" alt="Zoya Logo" class="logo">
+                    <div class="btn-div">
+                        <button class="login-button" onclick="showLogin()">Log In</button>
+                        <button class="signup-button" onclick="showLogin()">Sign Up</button>
+                    </div>
+                    <div class="login-container" id="loginContainer">
+                        <div class="login-box">
+                            <button class="close-btn" onclick="closeLogin()">X</button>
+                            <h1>Log In or Sign Up</h1>
+                            <div class="input-group">
+                                <div class="flag-container">
+                                    <select>
+                                        <option value="+91">🇮🇳 +91</option>
+                                        <option value="+1">🇺🇸 +1</option>
+                                        <option value="+61">🇦🇺 +61</option>
+                                        <option value="+44">🇬🇧 +44</option>
+                                        <option value="+64">🇳🇿 +64</option>
+                                        <option value="+1">🇨🇦 +1</option>
+                                        <option value="+27">🇿🇦 +27</option>
+                                        <option value="+65">🇸🇬 +65</option>
+                                        <option value="+965">🇰🇼 +965</option>
+                                        <option value="+968">🇴🇲 +968</option>
+                                        <option value="+39">🇮🇹 +39</option>
+                                        <option value="+974">🇶🇦 +974</option>
+                                        <option value="+351">🇵🇹 +351</option>
+                                        <option value="+34">🇪🇸 +34</option>
+                                        <option value="+40">🇷🇴 +40</option>
+                                        <option value="+254">🇰🇪 +254</option>
+                                        <option value="+60">🇲🇾 +60</option>
+                                        <option value="+966">🇸🇦 +966</option>
+                                        <option value="+49">🇩🇪 +49</option>
+                                        <option value="+971">🇦🇪 +971</option>
+                                        <option value="+973">🇧🇭 +973</option>
+                                    </select>
+                                </div>
+                                <input type="text" placeholder="Mobile Number" maxlength="10">
+                            </div>
+                            <p class="login-p">
+                                By continuing, I agree to 
+                                <a href="https://www.zoya.in/terms-and-condition?lang=en_IN#terms">Terms of Use</a> & 
+                                <a href="https://www.zoya.in/terms-and-condition?lang=en_IN#privacyPolicy">Privacy Policies</a>
+                            </p>
+                            <button class="continue-button">Continue</button>
+                        </div>
+                    </div>
+                    <script>
+                        function showLogin() 
+                        {
+                            const loginContainer = document.getElementById('loginContainer');
+                            loginContainer.style.display = 'flex';
+                        }
+                        function closeLogin() 
+                        {
+                            const loginContainer = document.getElementById('loginContainer');
+                            loginContainer.style.display = 'none';
+                        }
+                    </script>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="background-image-1"></div>
+    <section class="sec_1">
+        <div class="txt-bx">
+            <p>Our Collections</p>
+        </div>
+        <section class="sec_2">
+            <div class="wrapper">
+                <div class="card">
+                    <img src="images/img_3.webp" alt="her becoming img">
+                    <div class="info">
+                        <h1>Her Becoming</h1>
+                        <a href="http://127.0.0.1:5500/Collections/Her_Becoming.html" class="button">Explore</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/img_4.jpg" alt="my embrace img">
+                    <div class="info">
+                        <h1>My Embrace</h1>
+                        <a href="http://127.0.0.1:5500/Collections/My_Embrace.html" class="button">Explore</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/img_5.webp" alt="beyond img">
+                    <div class="info">
+                        <h1>Beyond</h1>
+                        <a href="http://127.0.0.1:5500/Collections/Beyond.html" class="button">Explore</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/img_6.webp" alt="Aterna img">
+                    <div class="info">
+                        <h1>Aterna</h1>
+                        <a href="http://127.0.0.1:5500/Collections/Aterna.html" class="button">Explore</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/img_7.webp" alt="Rooted img">
+                    <div class="info">
+                        <h1>Rooted</h1>
+                        <a href="http://127.0.0.1:5500/Collections/Rooted.html" class="button">Explore</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/img_8.webp" alt="Samave img">
+                    <div class="info">
+                        <h1>Samave</h1>
+                        <a href="http://127.0.0.1:5500/Collections/Samave.html" class="button">Explore</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/img_9.webp" alt="Pezzo_D'Arte img">
+                    <div class="info">
+                        <h1>Peezo D'Arte</h1>
+                        <a href="http://127.0.0.1:5500/Collections/Pezzo_D'arte.html" class="button">Explore</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/img_10.jpg" alt="Rouge img">
+                    <div class="info">
+                        <h1>6299 Hollywood Blvd</h1>
+                        <a href="http://127.0.0.1:5500/Collections/Rouge.html" class="button">Explore</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/img_11.webp" alt="Alive img">
+                    <div class="info">
+                        <h1>Alive</h1>
+                        <a href="http://127.0.0.1:5500/Collections/Alive.html" class="button">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class="sec_3">
+        <div class="txt-bx">
+            <p>Discover By Category</p>
+        </div>
+        <section class="sec_4">
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="images/img_12.webp" alt="Image 1">
+                    <button>
+                        <a href="http://127.0.0.1:5500/Shop_Jewellery/Earrings.html">Earrings</a>
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img src="images/img_13.webp" alt="Image 2">
+                    <button>
+                        <a href="http://127.0.0.1:5500/Shop_Jewellery/Bangle.html">Bangle</a>
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img src="images/img_14.webp" alt="Image 3">
+                    <button>
+                        <a href="http://127.0.0.1:5500/Shop_Jewellery/Necklace.html">Necklace</a>
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img src="images/img_15.webp" alt="Image 3">
+                    <button>
+                        <a href="http://127.0.0.1:5500/Shop_Jewellery/Rings.html">Rings</a>
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img src="images/img_16.webp" alt="Image 3">
+                    <button>
+                        <a href="http://127.0.0.1:5500/Solitaries.html">Solitaries</a>
+                    </button>
+                </div>
+                <div class="grid-item">
+                    <img src="images/img_17.webp" alt="Image 3">
+                    <button>
+                        <a href="http://127.0.0.1:5500/Shop_Jewellery/All_Jewellery.html">All Jewellery</a>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class="sec_5">
+        <div class="txt-bx">
+            <p>MySong</p>
+        </div>
+        <section class="sec_6">
+            <div class="background-image-2"></div>
+        </section>
+    </section>
+    <section class="sec_7">
+        <div class="txt-bx">
+            <p>Gifting</p>
+        </div>
+        <section class="sec_8">
+            <div class="background-image-3"></div>
+        </section>
+    </section>
+    <section class="sec_9">
+        <div class="txt-bx">
+            <p>Bespoke</p>
+        </div>
+        <section class="sec_10">
+            <div class="background-image-4"></div>
+        </section>
+    </section>
+    <section class="sec_11">
+        <div class="txt-bx">
+            <p>Spotted in Zoya</p>
+        </div>
+        <section class="sec_12">
+            <div class="background-image-5"></div>
+
+            <div class="marquee-box">
+                <div class="marquee-img-div">
+                    <img src="images/img_25.jpg" alt="Image 1" class="marquee-img">
+                    <img src="images/img_26.webp" alt="Image 2" class="marquee-img">
+                    <img src="images/img_27.jpg" alt="Image 3" class="marquee-img">
+                    <img src="images/img_28.jpg" alt="Image 4" class="marquee-img">
+                    <img src="images/img_29.webp" alt="Image 5" class="marquee-img">
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class="sec_13">
+        <div class="txt-bx">
+            <p class="p-1">Unveiling New Boutique at Iconic Brandy House</p>
+        </div>
+        <section class="sec_14">
+            <div class="background-image-6"></div>
+        </section>
+    </section>
+    <section class="sec_15">
+        <div class="txt-bx">
+            <p class="p-2">Stay Connected</p>
+        </div>
+        <section class="sec_14">
+            <div class="mail-div">
+                <div class="txt-info">
+                    <p class="p-3">Be the first to know about the latest collections, news and events.</p>
+                </div>
+                <div class="bxs">
+                    <input type="text" placeholder="Your Email Id">
+                </div>
+                <div class="txt-info">
+                    <p class="p-3">By subscribing, you agree to our 
+                        <a href="https://www.zoya.in/terms-and-condition?lang=en_IN#privacyPolicy">
+                            privacy policy
+                        </a>
+                    </p>
+                </div>
+                <div class="bxs">
+                    <button class="subscribe-button">Subscribe</button>
+                </div>
+            </div>
+        </section>
+    </section>
+    <footer>
+        <section class="sec_16">
+            <img src="images/img_31.svg" alt="footer logo">
+        </section>
+        <section class="sec_17">
+            <p class="txt-bx-2">Connect With Zoya</p>
+            <div class="btns">
+                <a href="https://www.facebook.com/ZoyaJewels">
+                    <img src="images/img_32.svg" alt="facebook-logo">
+                </a>
+                <a href="https://www.linkedin.com/company/zoya-a-tata-product/">
+                    <img src="images/img_33.svg" alt="linkedin-logo">
+                </a>
+                <a href="https://www.instagram.com/zoyajewels/">
+                    <img src="images/img_34.svg" alt="insta-logo">
+                </a>
+                <a href="https://www.youtube.com/channel/UCdaOC7iQe2ztX9ivTeu5G3A">
+                    <img src="images/img_35.svg" alt="yt-logo">
+                </a>
+                <a href="https://api.whatsapp.com/send/?phone=918147349461&text&type=phone_number&app_absent=0">
+                    <img src="images/img_36.svg" alt="whatsapp-logo">
+                </a>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>
